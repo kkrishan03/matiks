@@ -10,7 +10,7 @@ import Feedback from "./pages/Feedback";
 import SideBar from "./components/SideBar";
 import Dashboard from "./pages/Dashboard";
 import LeaderBoard from "./pages/LeaderBoard";
-
+// working bc
 const router = createBrowserRouter([
   {
     path: "/",
