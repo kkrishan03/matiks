@@ -11,6 +11,7 @@ import SideBar from "./components/SideBar";
 import Dashboard from "./pages/Dashboard";
 import LeaderBoard from "./pages/LeaderBoard";
 // working bc gsldkgnlksdfjgip'djhspgdsfgh
+// working hard for company
 const router = createBrowserRouter([
   {
     path: "/",
