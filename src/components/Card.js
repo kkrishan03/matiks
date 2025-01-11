@@ -1,6 +1,6 @@
 import React from "react";
 import { IoFlash } from "react-icons/io5";
-
+//My name is Anjali
 const Card = ({ cardData }) => {
   return (
     <div className="bg-white shadow-lg rounded-lg p-6 max-w-sm mx-auto">
