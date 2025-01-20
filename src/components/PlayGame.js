@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { IoIosPeople } from "react-icons/io";
 import { FaPlane } from "react-icons/fa";
 import { IoAlarmOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 const PlayGame = () => {
   const tabData = [
@@ -28,6 +29,20 @@ const PlayGame = () => {
   const timedata = [1, 2, 3, 5];
   const [selectedTab, setSelectedTab] = useState(tabData[0]);
   const [selectedTime, setSelectedTime] = useState(1);
+  const navigate = useNavigate();
+
+  const handleNavigation = () => {
+  if (selectedTab.title === "ONLINE DUELS") {
+    navigate("/duels-page", { state: { time: selectedTime } });
+  } else if (selectedTab.title === "FRIEND") {
+    navigate("/friends-page", { state: { time: selectedTime } });
+  } else if (selectedTab.title === "PRACTICE") {
+    navigate("/practice-page", { state: { time: selectedTime } });
+  }
+};
+
+
+
 
   return (
     <div className="p-6 bg-white rounded-lg shadow-md">
@@ -77,7 +92,8 @@ const PlayGame = () => {
             </div>
           ))}
         </div>
-        <button className="px-6 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600">
+        <button className="px-6 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600" 
+        onClick={handleNavigation}>
           {selectedTab.buttonText}
         </button>
       </div>

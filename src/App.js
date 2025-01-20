@@ -10,6 +10,10 @@ import Feedback from "./pages/Feedback";
 import SideBar from "./components/SideBar";
 import Dashboard from "./pages/Dashboard";
 import LeaderBoard from "./pages/LeaderBoard";
+import OnlineDuelsPage from "./pages/OnlineDuelsPage";
+import FriendsPage from "./pages/FriendsPage";
+import PracticePage from "./pages/PracticePage";
+
 // working bc gsldkgnlksdfjgip'djhspgdsfgh
 // working hard for company
 //branch 1
@@ -110,6 +114,49 @@ const router = createBrowserRouter([
       </div>
     ),
   },
+   {
+    path: "/practice-page",
+    element: (
+      <div>
+        <Navbar />
+        <div className="flex h-screen mt-16">
+          <SideBar />
+          <div className="flex-1 bg-gray-100 p-4 ml-20">
+            <PracticePage />
+          </div>
+        </div>
+      </div>
+    ),
+  },
+   {
+    path: "/friends-page",
+    element: (
+      <div>
+        <Navbar />
+        <div className="flex h-screen mt-16">
+          <SideBar />
+          <div className="flex-1 bg-gray-100 p-4 ml-20">
+            <FriendsPage />
+          </div>
+        </div>
+      </div>
+    ),
+  },
+   {
+    path: "/duels-page",
+    element: (
+      <div>
+        <Navbar />
+        <div className="flex h-screen mt-16">
+          <SideBar />
+          <div className="flex-1 bg-gray-100 p-4 ml-20">
+            <OnlineDuelsPage/>
+          </div>
+        </div>
+      </div>
+    ),
+  },
+
   {
     path: "/terms",
     element: <Privacy />,
