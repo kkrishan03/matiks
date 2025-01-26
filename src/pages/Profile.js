@@ -9,7 +9,7 @@ const Profile = () => {
   const [profiles, setProfiles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+//profile committed
   useEffect(() => {
     // Fetch profile data from the Flask API
     axios
