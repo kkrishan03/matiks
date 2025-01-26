@@ -1,20 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { PiCat } from "react-icons/pi";
 import { IoMdPersonAdd } from "react-icons/io";
 import { PreviousGames } from "../assets/TableData";
 import LineGraph from "../components/LineGraph";
+import axios from "axios";
 
 const Profile = () => {
+  const [profiles, setProfiles] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    // Fetch profile data from the Flask API
+    axios
+      .get("http://localhost:5000/api/profiles")  // Replace with your API URL
+      .then((response) => {
+        setProfiles(response.data);  // Set the profiles state with the API response
+        setLoading(false);  // Set loading to false once data is fetched
+      })
+      .catch((err) => {
+        setError("Failed to fetch profiles");
+        setLoading(false);
+      });
+  }, []);
+
+    // Render loading, error, or profiles based on state
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
+
+
   return (
     <div className="flex flex-col lg:flex-row p-6 bg-gray-50 min-h-screen">
       {/* Info and Previous Games Section */}
       <div className="lg:w-3/5 w-full bg-white p-6 rounded-lg shadow-lg">
         {/* Info section */}
+        {profiles.length > 0 && (
         <section className="flex items-center space-x-4 mb-8">
           <PiCat className="text-5xl text-gray-600" />
           <div>
-            <h2 className="text-xl font-semibold text-gray-800">Guest15737</h2>
-            <p className="text-gray-600">999</p>
+            <h2 className="text-xl font-semibold text-gray-800">{profiles[0].full_name}</h2>
+            <p className="text-gray-600">{profiles[0].username}</p>
+            <p className="font-semibold text-gray-800">999</p>
             <div className="flex space-x-4 text-sm text-gray-500">
               <span>0 Friends</span>
               <span>0 Followers</span>
@@ -22,7 +48,7 @@ const Profile = () => {
             </div>
           </div>
         </section>
-
+        )}
         {/* Previous Games section */}
         <section>
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">
