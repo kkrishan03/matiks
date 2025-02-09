@@ -14,11 +14,7 @@ import OnlineDuelsPage from "./pages/OnlineDuelsPage";
 import FriendsPage from "./pages/FriendsPage";
 import PracticePage from "./pages/PracticePage";
 
-// working bc gsldkgnlksdfjgip'djhspgdsfgh
-// working hard for company
-//branch 1
-///once againdggdf
-// bc again
+
 
 const router = createBrowserRouter([
   {
